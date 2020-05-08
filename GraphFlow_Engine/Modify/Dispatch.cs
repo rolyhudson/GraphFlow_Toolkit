@@ -12,11 +12,9 @@ namespace BH.Engine.GraphFlow
         /***************************************************/
         /****           Public Methods                  ****/
         /***************************************************/
-        public static void Throughput(this INode node, double amount)
+        public static void Dispatch(this INode node,Graph graph)
         {
-            //handles tracking total node throughput and updates outgoing
-            node.Throughput += amount;
-            node.Outgoing -= amount;
+            
         }
     }
 }

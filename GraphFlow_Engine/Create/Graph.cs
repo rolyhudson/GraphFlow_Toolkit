@@ -70,12 +70,67 @@ namespace BH.Engine.GraphFlow
         private static Graph Diamond()
         {
             Graph graph = new Graph();
+            graph.Nodes.Add(new Source()
+            {
+                Location = Geometry.Create.Point(0, 0, 0),
+                Incoming = 1000
+
+            });
+            graph.Nodes.Add(new Node()
+            {
+                Location = Geometry.Create.Point(1, 0.5, 0)
+            });
+            graph.Nodes.Add(new Node()
+            {
+                Location = Geometry.Create.Point(1, -0.5, 0)
+            });
+            graph.Nodes.Add(new Sink()
+            {
+                Location = Geometry.Create.Point(2, 0, 0)
+            });
+            graph.Links.Add(new Link() { End = graph.Nodes[1], Start = graph.Nodes[0] });
+            graph.Links.Add(new Link() { End = graph.Nodes[2], Start = graph.Nodes[0] });
+
+            graph.Links.Add(new Link() { End = graph.Nodes[3], Start = graph.Nodes[1] });
+            graph.Links.Add(new Link() { End = graph.Nodes[3], Start = graph.Nodes[2] });
 
             return graph;
         }
         private static Graph Pentagon()
         {
             Graph graph = new Graph();
+            graph.Nodes.Add(new Source()
+            {
+                Location = Geometry.Create.Point(0, 0, 0),
+                Incoming = 1000
+
+            });
+            
+            graph.Nodes.Add(new Node()
+            {
+                Location = Geometry.Create.Point(1, -0.5, 0)
+            });
+            graph.Nodes.Add(new Node()
+            {
+                Location = Geometry.Create.Point(2, 0.5, 0)
+            });
+            graph.Nodes.Add(new Node()
+            {
+                Location = Geometry.Create.Point(3, -0.5, 0)
+            });
+            graph.Nodes.Add(new Sink()
+            {
+                Location = Geometry.Create.Point(4, 0, 0)
+            });
+            
+
+            graph.Links.Add(new Link() { End = graph.Nodes[1], Start = graph.Nodes[0] });
+            graph.Links.Add(new Link() { End = graph.Nodes[2], Start = graph.Nodes[0] });
+
+            graph.Links.Add(new Link() { End = graph.Nodes[3], Start = graph.Nodes[1] });
+
+            graph.Links.Add(new Link() { End = graph.Nodes[4], Start = graph.Nodes[2] });
+            graph.Links.Add(new Link() { End = graph.Nodes[4], Start = graph.Nodes[3] });
 
             return graph;
         }

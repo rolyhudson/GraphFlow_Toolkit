@@ -17,7 +17,7 @@ namespace BH.Engine.GraphFlow
                 while (loops < steps)
                 {
                     for (int i = 0; i < graph.Nodes.Count; i++)
-                        graph.Nodes[i].Transition(graph);
+                        graph.Nodes[i].Dispatch(graph);
 
                     graph.Step++;
                     loops++;

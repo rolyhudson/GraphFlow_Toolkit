@@ -50,7 +50,7 @@ namespace BH.Engine.GraphFlow
         /***************************************************/
         public static IGeometry Geometry(this INode node)
         {
-            return BH.Engine.Geometry.Create.Circle(node.Location,0.4);
+            return BH.Engine.Geometry.Create.Circle(node.Location,0.2);
         }
         /***************************************************/
         public static IGeometry Geometry(this ILink link)

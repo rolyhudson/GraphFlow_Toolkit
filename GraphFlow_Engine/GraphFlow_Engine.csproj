@@ -36,7 +36,8 @@
       <HintPath>..\..\BHoM\Build\BHoM.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Dimensional_oM, Version=3.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="Dimensional_oM">
+      <HintPath>..\..\BHoM\Build\Dimensional_oM.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Geometry_Engine">
@@ -64,12 +65,10 @@
   <ItemGroup>
     <Compile Include="Create\Graph.cs" />
     <Compile Include="Create\Source.cs" />
+    <Compile Include="Modify\Dispatch.cs" />
     <Compile Include="Modify\Step.cs" />
-    <Compile Include="Modify\Throughput.cs" />
-    <Compile Include="Modify\Transition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\Geometry.cs" />
-    <Compile Include="Query\Status.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GraphFlow_oM\GraphFlow_oM.csproj">
