@@ -66,6 +66,7 @@
     <Compile Include="Create\Graph.cs" />
     <Compile Include="Create\Source.cs" />
     <Compile Include="Modify\Dispatch.cs" />
+    <Compile Include="Modify\Occupancy.cs" />
     <Compile Include="Modify\Step.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\Geometry.cs" />

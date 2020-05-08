@@ -19,6 +19,9 @@ namespace BH.Engine.GraphFlow
                     for (int i = 0; i < graph.Nodes.Count; i++)
                         graph.Nodes[i].Dispatch(graph);
 
+                    for (int i = 0; i < graph.Nodes.Count; i++)
+                        graph.Nodes[i].Occupancy();
+
                     graph.Step++;
                     loops++;
                 }

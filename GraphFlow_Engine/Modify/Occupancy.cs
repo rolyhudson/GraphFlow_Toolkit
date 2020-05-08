@@ -12,12 +12,15 @@ namespace BH.Engine.GraphFlow
         /***************************************************/
         /****           Public Methods                  ****/
         /***************************************************/
-        public static void Dispatch(this INode node,Graph graph)
+        public static void Occupancy(this INode node)
         {
-            IEnumerable<INode> destination = graph.Links.Where(x => x.Start.Equals(node)).Select(x => x.End);
+            if (node.Incoming == 0)
+                return;
+            double space = node.Capacity - node.Occupancy;
 
-            foreach (INode n in destination)
-                n.Incoming += node.Occupancy / destination.Count();
+            double toAdd = Math.Min(space, node.Incoming);
+            node.Occupancy += toAdd;
+            node.Incoming -= toAdd;
         }
     }
 }
