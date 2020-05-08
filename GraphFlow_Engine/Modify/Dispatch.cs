@@ -15,9 +15,17 @@ namespace BH.Engine.GraphFlow
         public static void Dispatch(this INode node,Graph graph)
         {
             IEnumerable<INode> destination = graph.Links.Where(x => x.Start.Equals(node)).Select(x => x.End);
+            if (node.Occupancy == 0)
+                return;
+
+            double toDispatch = Math.Min(node.FlowRate, node.Occupancy / destination.Count());
 
             foreach (INode n in destination)
-                n.Incoming += node.Occupancy / destination.Count();
+            {
+                n.Incoming += toDispatch;
+                node.Occupancy -= toDispatch;
+            }
+                
         }
     }
 }

@@ -13,8 +13,7 @@ namespace BH.oM.GraphFlow
         public virtual double Incoming { get; set; } = 0.0;
         public virtual double Occupancy { get; set; } = 0.0;
         public virtual double Capacity { get; set; } = double.MaxValue;
-        public virtual double FlowRate { get; set; } = 12.5;
-        public virtual double Throughput { get; set; } = 0;
+        public virtual double FlowRate { get; set; } = 1;
         public virtual Point Location { get; set; } = new Point();
     }
 }

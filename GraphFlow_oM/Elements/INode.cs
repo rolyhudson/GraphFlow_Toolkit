@@ -9,7 +9,6 @@ namespace BH.oM.GraphFlow
         double Occupancy { get; set; }
         double Capacity { get; set; }
         double FlowRate { get; set; }
-        double Throughput { get; set; }
         Point Location { get; set; }
     }
 }

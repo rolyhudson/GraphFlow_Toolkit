@@ -9,7 +9,7 @@ namespace BH.oM.GraphFlow
 {
     public class Link : BHoMObject, ILink
     {
-        public virtual INode Start { get; set; }
-        public virtual INode End { get; set; }
+        public virtual INode Start { get; set; } = new Node();
+        public virtual INode End { get; set; } = new Node();
     }
 }
