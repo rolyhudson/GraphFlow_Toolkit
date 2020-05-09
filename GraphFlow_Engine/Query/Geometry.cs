@@ -53,10 +53,26 @@ namespace BH.Engine.GraphFlow
             return BH.Engine.Geometry.Create.Circle(node.Location,0.2);
         }
         /***************************************************/
-        public static IGeometry Geometry(this ILink link)
+        public static CompositeGeometry Geometry(this ILink link)
         {
-            return BH.Engine.Geometry.Create.Line(link.Start.Location, link.End.Location);
+            List<IGeometry> geometries = new List<IGeometry>();
+            geometries.Add(BH.Engine.Geometry.Create.Line(link.Start.Location, link.End.Location));
+            geometries.Add(link.AddArrow());
+            return BH.Engine.Geometry.Create.CompositeGeometry(geometries);
         }
         /***************************************************/
+        private static CompositeGeometry AddArrow(this ILink link)
+        {
+            Vector back =  link.Start.Location - link.End.Location;
+            Vector perp = back.CrossProduct(Vector.ZAxis);
+            back = back * 0.1;
+            perp = perp * 0.025;
+            Point p1 = link.End.Location + (back + perp);
+            Point p2 = link.End.Location + (back - perp);
+            List<IGeometry> geometries = new List<IGeometry>();
+            geometries.Add(BH.Engine.Geometry.Create.Line(link.End.Location,p1));
+            geometries.Add(BH.Engine.Geometry.Create.Line(link.End.Location, p2));
+            return BH.Engine.Geometry.Create.CompositeGeometry(geometries);
+        }
     }
 }
